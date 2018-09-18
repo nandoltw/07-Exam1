@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Thomas Nandola.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -75,7 +75,8 @@ def problem1a(rectangle, square, thickness, window):
            -- An rg.Line for which:
                -- One endpoint is the center of the given rg.Square
                -- The other endpoint is the midpoint of the top edge
-                    of the given rg.Rectangle.  (SEE THE PICTURES.)
+
+                of the given rg.Rectangle.  (SEE THE PICTURES.)
                -- Its thickness is the given thickness.
                -- Its color is the outline color of the given rg.Rectangle.
 
@@ -92,6 +93,14 @@ def problem1a(rectangle, square, thickness, window):
     # TODO: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
+    square.attach_to(window)
+    rectangle.attach_to(window)
+    x = 1/2 * rectangle.get_upper_right_corner().x
+    y = 1/2 * rectangle.get_upper_right_corner().y
+    point = rg.Point(x,y)
+    line = rg.Line(square.center,point)
+    line.attach_to(window)
+    window.render()
 
 
 def run_test_problem1b():
@@ -148,6 +157,11 @@ def problem1b(point, win, width, height, color):
       :type height: int
       :type color:  str
     """
+    point.attach_to(win)
+    point2 = rg.Point(width,height)
+    ellipse = rg.Ellipse(point,point2)
+    ellipse.attach_to(win)
+    win.render()
     # --------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
